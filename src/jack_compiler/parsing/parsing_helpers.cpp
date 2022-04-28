@@ -39,3 +39,29 @@ std::vector<std::string> parsing_helpers::delete_empty_strings(const std::vector
 
 	return new_vector;
 }
+
+std::string parsing_helpers::trim_string(const std::string& in_string)
+{
+	if (in_string.empty()) return in_string;
+
+	auto current_string_pointer = const_cast<char*>(in_string.c_str()); // get pointer to the c-style string of the input string
+	while (current_string_pointer[0] == ' ' || current_string_pointer[0] == '	') current_string_pointer++; // advance until character is not whitespace
+	
+	auto current_seek_pointer = current_string_pointer; // seek pointer
+	while (current_seek_pointer[0] != 0) current_seek_pointer++; // advance until end of string
+
+	while (current_seek_pointer[0] == ' ' || current_seek_pointer[0] == '	') current_seek_pointer--; // go back until not whitespace
+	current_seek_pointer[1] = 0; // set terminating character
+
+	return current_string_pointer;
+}
+
+
+bool parsing_helpers::string_is_number(const std::string& string)
+{
+	for (const char c : string) // go through each character
+		if (c < '0' || c > '9') return false; // return false if outside of number char range
+
+	// otherwise:
+	return true;
+}

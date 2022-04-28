@@ -143,13 +143,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\jack_compiler\jack_program.cpp" />
     <ClCompile Include="src\jack_compiler\parsing\parser.cpp" />
     <ClCompile Include="src\jack_compiler\parsing\parsing_helpers.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\jack_compiler\jack_program.hpp" />
     <ClInclude Include="src\jack_compiler\parsing\parser.hpp" />
     <ClInclude Include="src\jack_compiler\parsing\parsing_helpers.hpp" />
   </ItemGroup>
