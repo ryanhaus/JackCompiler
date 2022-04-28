@@ -18,18 +18,18 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\jack_compiler\parsing\parsing_helpers.cpp">
+    <ClCompile Include="src\jack_compiler\parsing_helpers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\jack_compiler\parsing\parser.cpp">
+    <ClCompile Include="src\jack_compiler\tokenizer\tokenizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\jack_compiler\parsing\parsing_helpers.hpp">
+    <ClInclude Include="src\jack_compiler\parsing_helpers.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\jack_compiler\parsing\parser.hpp">
+    <ClInclude Include="src\jack_compiler\tokenizer\tokenizer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "parser.hpp"
+#include "tokenizer.hpp"
 
 #include <algorithm>
 #include <cassert>
@@ -6,11 +6,11 @@
 #include <fstream>
 #include <rapidxml/rapidxml_print.hpp>
 
-#include "parsing_helpers.hpp"
+#include "../parsing_helpers.hpp"
 
 static bool in_multiline_comment = false; // flag for whether or not we are currently in a multiline comment
 
-const char jack_parser::symbols[] =
+const char jack_tokenizer::symbols[] =
 {
 	'(',	')',																	// arithmetic grouping, and parameter/argument-lists grouping
 	'[',	']',																	// array indexing
@@ -23,7 +23,7 @@ const char jack_parser::symbols[] =
 
 };
 
-const std::string jack_parser::reserved_words[] =
+const std::string jack_tokenizer::reserved_words[] =
 {
 	"class",	"constructor",	"method",	"function",								// program components
 	"int",		"boolean",		"char",		"void",									// primitive types
@@ -33,7 +33,7 @@ const std::string jack_parser::reserved_words[] =
 	"this",																			// object reference
 };
 
-const std::map<jack_parser::token_classification, std::string> jack_parser::classification_strings =
+const std::map<jack_tokenizer::token_classification, std::string> jack_tokenizer::classification_strings =
 {
 	{ token_classification::unknown,			"ERROR"				},
 	{ token_classification::keyword,			"keyword"			},
@@ -43,7 +43,7 @@ const std::map<jack_parser::token_classification, std::string> jack_parser::clas
 	{ token_classification::identifier,			"identifier"		},
 };
 
-jack_parser::statement_tokens jack_parser::tokenize_string(const std::string& in_string)
+jack_tokenizer::statement_tokens jack_tokenizer::tokenize_string(const std::string& in_string)
 {
 	statement_tokens statement;
 
@@ -151,7 +151,7 @@ jack_parser::statement_tokens jack_parser::tokenize_string(const std::string& in
 	return statement;
 }
 
-rapidxml::xml_document<>* jack_parser::generate_xml_doc(const std::vector<statement_tokens>& tokens_list)
+rapidxml::xml_document<>* jack_tokenizer::generate_xml_doc(const std::vector<statement_tokens>& tokens_list)
 {
 	const auto doc = new rapidxml::xml_document<>();
 
@@ -172,7 +172,7 @@ rapidxml::xml_document<>* jack_parser::generate_xml_doc(const std::vector<statem
 	return doc;
 }
 
-rapidxml::xml_document<>* jack_parser::parse_file(const char* file_name)
+rapidxml::xml_document<>* jack_tokenizer::tokenize_file(const char* file_name)
 {
 	std::vector<statement_tokens> tokens;
 	std::ifstream source_file(file_name); // open file stream

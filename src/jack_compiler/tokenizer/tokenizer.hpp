@@ -7,7 +7,7 @@
 /**
  * \brief Contains functions related to the parsing of Jack statements/programs
  */
-namespace jack_parser
+namespace jack_tokenizer
 {
 	/**
 	 * \brief Contains all the different types of token identification
@@ -42,7 +42,7 @@ namespace jack_parser
 	 * \param file_name Name of the file to read from
 	 * \return Returns a Rapid XML document
 	 */
-	rapidxml::xml_document<>* parse_file(const char* file_name);
+	rapidxml::xml_document<>* tokenize_file(const char* file_name);
 
 	/**
 	 * \brief A collection of the symbols available in the Jack language

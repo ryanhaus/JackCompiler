@@ -143,13 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\jack_compiler\parsing\parser.cpp" />
-    <ClCompile Include="src\jack_compiler\parsing\parsing_helpers.cpp" />
+    <ClCompile Include="src\jack_compiler\tokenizer\tokenizer.cpp" />
+    <ClCompile Include="src\jack_compiler\parsing_helpers.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\jack_compiler\parsing\parser.hpp" />
-    <ClInclude Include="src\jack_compiler\parsing\parsing_helpers.hpp" />
+    <ClInclude Include="src\jack_compiler\tokenizer\tokenizer.hpp" />
+    <ClInclude Include="src\jack_compiler\parsing_helpers.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Main.jack" />
